@@ -1,0 +1,9 @@
+FROM python:latest
+RUN mkdir app
+COPY ./task.py /app
+COPY ./.aws/credentials /root/.aws/credentials
+WORKDIR /app
+RUN pip3 install boto3
+RUN pip3 install datetime
+CMD ["python3", "task.py"]
+
